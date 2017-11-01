@@ -2,16 +2,16 @@ package ar.uba.fi.tdd.rulogic.model;
 
 import static org.mockito.MockitoAnnotations.initMocks;
 
-import ar.uba.fi.tdd.rulogic.model.entities.DataBase;
+import ar.uba.fi.tdd.rulogic.model.entities.Interpreter;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 
-public class DataBaseTest {
+public class InterpreterTest {
 
 	@InjectMocks
-	private DataBase dataBase;
+	private Interpreter i;
 
 	@Before
 	public void setUp() throws Exception {
@@ -21,7 +21,7 @@ public class DataBaseTest {
 	@Test
 	public void test() {
 
-		Assert.assertTrue(this.dataBase.answer("varon (javier)."));
+		Assert.assertTrue(this.i.answer("varon (javier)."));
 
 	}
 
