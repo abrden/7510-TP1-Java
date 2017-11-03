@@ -15,6 +15,10 @@ public class Interpreter {
         db = new DataBaseParser().parse(dbPath);
     }
 
+    public boolean dbHasMalformations() {
+        return db.hasMalformations();
+    }
+
     private Fact parseQuery(String query) {
         if (query.matches("[^(]+\\([^)]+\\)"))
             return new FactParser().parse(query);
