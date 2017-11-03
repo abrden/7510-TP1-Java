@@ -8,6 +8,12 @@ public class DataBase {
 	private List<Rule> rules;
 	private List<Malformation> malformations;
 
+	public DataBase(List<Fact> facts, List<Rule> rules, List<Malformation> malformations) {
+		this.facts = facts;
+		this.rules = rules;
+		this.malformations = malformations;
+	}
+
 	public List<Fact> getFacts() {
 		return facts;
 	}
@@ -34,7 +40,7 @@ public class DataBase {
 
 	private Rule findRuleWithPredicate(String predicate) {
 		for (Rule rule : rules) {
-			if (!rule.getSignature().getPredicate().equals(predicate)) return rule;
+			if (rule.getSignature().getPredicate().equals(predicate)) return rule;
 		}
 		return null;
 	}
