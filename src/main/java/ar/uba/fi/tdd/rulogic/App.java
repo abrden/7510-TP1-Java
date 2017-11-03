@@ -17,14 +17,14 @@ public class App {
 			System.out.println("(SLI) Error: Malformed database");
 			return;
 		} else {
-			System.out.print("Database loaded successfully. Enter any query. Exit with 'q'.\n(SLI) ");
+			System.out.println("Database loaded successfully. Enter any query. Exit with 'q'.");
 		}
 
 		String line = br.readLine();
 		while (!line.equals("q")) {
+		    System.out.print("(SLI) ");
 			System.out.println(i.answer(line));
 
-			System.out.print("(SLI) ");
 			line = br.readLine();
 		}
     }
