@@ -5,12 +5,7 @@ public class Interpreter {
     private DataBase db;
 
     public Interpreter(String dbPath) {
-        db = parseDataBase(dbPath);
-    }
-
-    private DataBase parseDataBase(String dbPath) {
-        // TODO
-        return null;
+        // db = new DataBaseParser.parse(dbPath);
     }
 
     public boolean answer(String query) {
