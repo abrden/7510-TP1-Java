@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RuleParser {
+public class RuleParser implements Parser {
 
     public Rule parse(String sentence) {
         List<String> parts = Arrays.asList(sentence.split("\\s*:-\\s*|\\)\\s*,\\s*|\\."));

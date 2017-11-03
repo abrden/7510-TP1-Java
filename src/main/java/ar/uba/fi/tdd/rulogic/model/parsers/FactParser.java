@@ -5,7 +5,7 @@ import ar.uba.fi.tdd.rulogic.model.entities.Fact;
 import java.util.Arrays;
 import java.util.List;
 
-public class FactParser {
+public class FactParser implements Parser {
 
     public Fact parse(String sentence) {
         List<String> parts = Arrays.asList(sentence.split("\\(|,\\s*|\\)\\.|\\)"));
