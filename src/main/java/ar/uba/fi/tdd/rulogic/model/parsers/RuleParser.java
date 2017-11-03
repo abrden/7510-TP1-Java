@@ -1,0 +1,21 @@
+package ar.uba.fi.tdd.rulogic.model.parsers;
+
+import ar.uba.fi.tdd.rulogic.model.entities.Fact;
+import ar.uba.fi.tdd.rulogic.model.entities.Rule;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class RuleParser {
+
+    public Rule parse(String sentence) {
+        List<String> parts = Arrays.asList(sentence.split("\\s*:-\\s*|\\)\\s*,\\s*|\\."));
+        List<Fact> facts = parts.stream().map(part -> new FactParser().parse(part)).collect(Collectors.toList());
+        return new Rule(facts.get(0), facts.subList(1, facts.size()));
+        /*
+        var ruleArr = ruleStr.split(/\s*:-\s*|\)\s*,\s*|\./).slice(0, -1).map(FactParser);
+        return new Rule(ruleArr[0], ruleArr.slice(1));
+         */
+    }
+}
