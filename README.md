@@ -1,4 +1,4 @@
-# Simple Logic Interpreter [![Build Status](https://travis-ci.org/abrden/7510-TP1-Java.svg?branch=master)](https://travis-ci.org/abrden/7510-TP1-Java)
+# Simple Logic Interpreter [![Build Status](https://travis-ci.org/abrden/7510-TP1-Java.svg?branch=master)](https://travis-ci.org/abrden/7510-TP1-Java) [![codecov](https://codecov.io/gh/abrden/7510-TP1-Java/branch/master/graph/badge.svg)](https://codecov.io/gh/abrden/7510-TP1-Java)
 
 A Java library designed to serve as a logic interpreter.
 
