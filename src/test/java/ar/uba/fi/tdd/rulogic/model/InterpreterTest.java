@@ -1,28 +1,51 @@
 package ar.uba.fi.tdd.rulogic.model;
 
-import static org.mockito.MockitoAnnotations.initMocks;
-
-import ar.uba.fi.tdd.rulogic.model.entities.Interpreter;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
+
+import java.io.IOException;
 
 public class InterpreterTest {
 
-	@InjectMocks
-	private Interpreter i;
+	@Test
+	public void queryOnNonMalformedDbTest() throws IOException {
+		String dbPath = "src/main/resources/facts.db";
+		Interpreter i = new Interpreter(dbPath);
 
-	@Before
-	public void setUp() throws Exception {
-		initMocks(this);
+		Assert.assertTrue(i.answer("man(John)"));
 	}
 
 	@Test
-	public void test() {
+	public void queryOnMalformedDbTest() throws IOException {
+		String dbPath = "src/main/resources/rules.db";
+		Interpreter i = new Interpreter(dbPath);
 
-		Assert.assertTrue(this.i.answer("varon (javier)."));
+		Assert.assertFalse(i.answer("varon(juan)"));
+	}
 
+	@Test
+	public void queryWithPeriodIsMalformedTest() throws IOException {
+		String dbPath = "src/main/resources/facts.db";
+		Interpreter i = new Interpreter(dbPath);
+
+		Assert.assertFalse(i.answer("varon(juan)."));
+	}
+
+	@Test
+	public void malformedQueryTest() throws IOException {
+		String dbPath = "src/main/resources/facts.db";
+		Interpreter i = new Interpreter(dbPath);
+
+		Assert.assertFalse(i.answer("varon(juan"));
+	}
+
+
+	@Test
+	public void ruleQueryOnNonMalformedDbtest() throws IOException {
+		String dbPath = "src/main/resources/numbers.db";
+		Interpreter i = new Interpreter(dbPath);
+
+		Assert.assertTrue(i.answer("subtract(two, one, one)"));
 	}
 
 }
