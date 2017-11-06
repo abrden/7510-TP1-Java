@@ -24,6 +24,14 @@ public class InterpreterTest {
 	}
 
 	@Test
+	public void dbHasMalformationsIsTrueTest() throws IOException {
+		String dbPath = "src/main/resources/rules.db";
+		Interpreter i = new Interpreter(dbPath);
+
+		Assert.assertTrue(i.dbHasMalformations());
+	}
+
+	@Test
 	public void queryWithPeriodIsMalformedTest() throws IOException {
 		String dbPath = "src/main/resources/facts.db";
 		Interpreter i = new Interpreter(dbPath);
