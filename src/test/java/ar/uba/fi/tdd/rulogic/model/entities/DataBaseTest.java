@@ -146,4 +146,28 @@ public class DataBaseTest {
         Assert.assertFalse(db.ruleQuery(new Fact("daughter", Arrays.asList("Molly", "John"))));
     }
 
+    @Test
+    public void nonExistentRuleQueryTest() {
+
+        List<Fact> facts = Arrays.asList(
+                new Fact("man", Arrays.asList("John")),
+                new Fact("woman", Arrays.asList("Rosamund")),
+                new Fact("father", Arrays.asList("John", "Rosamund"))
+        );
+
+        List<Rule> rules = Arrays.asList(
+                new Rule(new Fact("daughter", Arrays.asList("X", "Y")),
+                        Arrays.asList(
+                                new Fact("father", Arrays.asList("Y", "X")),
+                                new Fact("woman", Arrays.asList("X"))
+                        ))
+        );
+
+        List<Malformation> malformations = Arrays.asList();
+
+        DataBase db = new DataBase(facts, rules, malformations);
+
+        Assert.assertFalse(db.ruleQuery(new Fact("friends", Arrays.asList("Molly", "John"))));
+    }
+
 }

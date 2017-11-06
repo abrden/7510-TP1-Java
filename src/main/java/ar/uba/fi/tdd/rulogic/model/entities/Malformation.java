@@ -7,8 +7,4 @@ public class Malformation {
     public Malformation(String sentence) {
         this.sentence = sentence;
     }
-
-    public String getSentence() {
-        return sentence;
-    }
 }
